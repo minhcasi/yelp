@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FiltersViewController.saveFilter() -&gt; ():FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filters">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.getCellRadius(NSIndexPath) -&gt; UITableViewCell:FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isChecked">
+            </PersistentString>
+            <PersistentString
+               value = "self.radius[indexPath.row]">
+            </PersistentString>
+            <PersistentString
+               value = "isCollapseDistance">
+            </PersistentString>
+            <PersistentString
+               value = "self.filters[&quot;radius&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.getSavedFilter() -&gt; ():FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "radius">
+            </PersistentString>
+            <PersistentString
+               value = "filters">
+            </PersistentString>
+            <PersistentString
+               value = "filtersData">
+            </PersistentString>
+            <PersistentString
+               value = "filters[&quot;deal&quot;]!">
+            </PersistentString>
+            <PersistentString
+               value = "filters[&quot;deal&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.getCellDistance(NSIndexPath) -&gt; UITableViewCell:FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "isCollapseDistance">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "self.sortBy[indexPath.row]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.tableView(UITableView, heightForRowAtIndexPath : NSIndexPath) -&gt; CGFloat:FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sortBy[indexPath.row]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BusinessesViewController.doSearching() -&gt; ():BusinessesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filters[&quot;sortBy&quot;] as? String">
+            </PersistentString>
+            <PersistentString
+               value = "sortModeMapping[&quot;Rating&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.getCellDeal(NSIndexPath) -&gt; UITableViewCell:FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.filters">
+            </PersistentString>
+            <PersistentString
+               value = "self.filters[&quot;radius&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "self.filters[&quot;deal&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FiltersViewController.tableView(UITableView, viewForHeaderInSection : Int) -&gt; UIView?:FiltersViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
