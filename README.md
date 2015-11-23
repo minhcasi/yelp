@@ -28,7 +28,7 @@ Time spent: 21
     - [x] Categories should show a subset of the full list with a "See All" row to expand. Category list is here: http://www.yelp.com/developers/documentation/category_list (Links to an external site.)
 
 - [ ] Search results page
-    - [ ] Infinite scroll for restaurant results
+    - [x] Infinite scroll for restaurant results
     - [ ] Implement map view of restaurant results
 
 

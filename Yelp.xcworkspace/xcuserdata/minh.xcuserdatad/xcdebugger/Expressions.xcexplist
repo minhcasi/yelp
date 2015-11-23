@@ -3,10 +3,27 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "FiltersViewController.saveFilter() -&gt; ():FiltersViewController.swift">
+         contextName = "FiltersViewController.tableView(UITableView, viewForHeaderInSection : Int) -&gt; UIView?:FiltersViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "specialized BusinessesViewController.(doSearching(BusinessesViewController) -&gt; () -&gt; ()).(closure #1):BusinessesViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "filters">
+               value = "businesses">
+            </PersistentString>
+            <PersistentString
+               value = "response.businesses">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BusinessesViewController.doSearching() -&gt; ():BusinessesViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filters[&quot;sortBy&quot;] as? String">
+            </PersistentString>
+            <PersistentString
+               value = "sortModeMapping[&quot;Rating&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -24,26 +41,6 @@
             </PersistentString>
             <PersistentString
                value = "self.filters[&quot;radius&quot;]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "FiltersViewController.getSavedFilter() -&gt; ():FiltersViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "radius">
-            </PersistentString>
-            <PersistentString
-               value = "filters">
-            </PersistentString>
-            <PersistentString
-               value = "filtersData">
-            </PersistentString>
-            <PersistentString
-               value = "filters[&quot;deal&quot;]!">
-            </PersistentString>
-            <PersistentString
-               value = "filters[&quot;deal&quot;]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -70,13 +67,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "BusinessesViewController.doSearching() -&gt; ():BusinessesViewController.swift">
+         contextName = "FiltersViewController.getSavedFilter() -&gt; ():FiltersViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "filters[&quot;sortBy&quot;] as? String">
+               value = "filters[&quot;deal&quot;]">
             </PersistentString>
             <PersistentString
-               value = "sortModeMapping[&quot;Rating&quot;]">
+               value = "filters">
+            </PersistentString>
+            <PersistentString
+               value = "filtersData">
+            </PersistentString>
+            <PersistentString
+               value = "filters[&quot;deal&quot;]!">
+            </PersistentString>
+            <PersistentString
+               value = "radius">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -84,18 +90,23 @@
          contextName = "FiltersViewController.getCellDeal(NSIndexPath) -&gt; UITableViewCell:FiltersViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.filters">
+               value = "self.filters[&quot;deal&quot;]">
             </PersistentString>
             <PersistentString
                value = "self.filters[&quot;radius&quot;]">
             </PersistentString>
             <PersistentString
-               value = "self.filters[&quot;deal&quot;]">
+               value = "self.filters">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FiltersViewController.tableView(UITableView, viewForHeaderInSection : Int) -&gt; UIView?:FiltersViewController.swift">
+         contextName = "FiltersViewController.saveFilter() -&gt; ():FiltersViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filters">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
    </ContextStates>
 </VariablesViewState>

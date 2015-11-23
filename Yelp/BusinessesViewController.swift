@@ -16,7 +16,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var noResultLabel: UILabel!
     
-    var businesses: [Business]!
+    var businesses = [Business]()
     
     var categories : [String]!
     var filters = [String : AnyObject]()
@@ -91,16 +91,17 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
 
 extension BusinessesViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if businesses != nil {
-            return businesses.count
-        }
-        return 0;
+        return businesses.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
-        
         cell.business = businesses[indexPath.row]
+        
+        if indexPath.row == self.businesses.count - 1 {
+            doSearching()
+        }
+        
         return cell
     }
     
@@ -137,7 +138,9 @@ extension BusinessesViewController {
         if radius != nil {
             radiusValue = radius! * meterValue
         }
-        let offset = 0
+        
+        let offset = self.businesses.count
+
         
         Business.searchWithTerm(
             self.keyword,
@@ -149,7 +152,11 @@ extension BusinessesViewController {
             ) { (response: Response!, error: NSError!) -> Void in
                 
                 if response != nil {
-                    self.businesses = response.businesses
+                    if offset < response.total {
+                        for business in response.businesses {
+                            self.businesses.append(business)
+                        }
+                    }
                     self.tableView.reloadData()
                 }
             }
