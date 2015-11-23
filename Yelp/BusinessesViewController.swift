@@ -211,7 +211,7 @@ extension BusinessesViewController {
             }
     }
     
-    func addLocation(latitude: Double, longtitude : Double, title: String) {
+    func addLocation(latitude: Double, longtitude : Double, title: String, address: String) {
         let location = CLLocationCoordinate2D(
             latitude: latitude,
             longitude: longtitude
@@ -225,16 +225,16 @@ extension BusinessesViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = title
+        annotation.subtitle = address
         cMapView.addAnnotation(annotation)
     }
     
     func loadMapView() {
-        self.addLocation(37.785771,longtitude: -122.406165, title: "San Francisco")
-        
+        self.addLocation(37.785771,longtitude: -122.406165, title: "San Francisco", address: "")
         
         if businesses.count > 0 {
             for business in businesses {
-                self.addLocation(business.latitude!, longtitude: business.longitude!, title: business.name!)
+                self.addLocation(business.latitude!, longtitude: business.longitude!, title: business.name!, address: business.address!)
             }
         }
     }
