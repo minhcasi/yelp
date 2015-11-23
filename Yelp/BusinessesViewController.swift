@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import MapKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate , FiltersViewControllerDelegate , UISearchBarDelegate{
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate , FiltersViewControllerDelegate , UISearchBarDelegate  {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var cMapView: MKMapView!
+    
+    
+    let locationMng = CLLocationManager()
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -22,9 +28,11 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     var filters = [String : AnyObject]()
     var keyword : String!
     
+    var totalResult = 0
     var isSearchMode : Bool!
     let meterValue = 1609.344 as Float
     
+    @IBOutlet weak var changeModeButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +45,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
 
         
         searchBar.delegate = self
+        cMapView.hidden = true
         
         getFiltersData()
         doSearching()
@@ -86,6 +95,42 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             doSearching()
         }
     }
+    
+    
+    @IBAction func changeModeView(sender: AnyObject) {
+        if (changeModeButton.image == UIImage(named: "map-view"))   {
+            // show list view
+            tableView.hidden = true
+            cMapView.hidden = false
+            changeModeButton.image = UIImage(named: "list-view")
+        }
+        else {
+            // show map view
+            tableView.hidden = false
+            cMapView.hidden = true
+            changeModeButton.image = UIImage(named: "map-view")
+        }
+    }
+    
+    
+    func createMarkers() {
+//        if businesses.count > 0 {
+//            MKMapCamera.lati
+//            
+//            var camera = GMSCameraPosition.cameraWithLatitude(businesses[0].latitude!, longitude: businesses[0].longitude!, zoom: 15)
+//            mapView.camera = camera
+//            mapView.myLocationEnabled = true
+//            
+//            // Create maker for each business
+//            for i in 0..<businesses!.count {
+//                var marker = GMSMarker()
+//                marker.position = CLLocationCoordinate2DMake(businesses[i].latitude!, businesses[i].longitude!)
+//                marker.icon = createMarkerIcon(i + 1)
+//                marker.map = mapView
+//            }
+//        }
+    }
+
 }
 
 
@@ -98,8 +143,10 @@ extension BusinessesViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell", forIndexPath: indexPath) as! BusinessCell
         cell.business = businesses[indexPath.row]
         
-        if indexPath.row == self.businesses.count - 1 {
-            doSearching()
+        if businesses.count < totalResult {
+            if indexPath.row == self.businesses.count - 1 {
+                doSearching()
+            }
         }
         
         return cell
@@ -152,17 +199,47 @@ extension BusinessesViewController {
             ) { (response: Response!, error: NSError!) -> Void in
                 
                 if response != nil {
+                    self.totalResult = response.total!
                     if offset < response.total {
                         for business in response.businesses {
                             self.businesses.append(business)
                         }
                     }
                     self.tableView.reloadData()
+                    self.loadMapView()
                 }
             }
     }
+    
+    func addLocation(latitude: Double, longtitude : Double, title: String) {
+        let location = CLLocationCoordinate2D(
+            latitude: latitude,
+            longitude: longtitude
+        )
+        
+        let span = MKCoordinateSpanMake(0.02, 0.02)
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        cMapView.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location
+        annotation.title = title
+        cMapView.addAnnotation(annotation)
+    }
+    
+    func loadMapView() {
+        self.addLocation(37.785771,longtitude: -122.406165, title: "San Francisco")
+        
+        
+        if businesses.count > 0 {
+            for business in businesses {
+                self.addLocation(business.latitude!, longtitude: business.longitude!, title: business.name!)
+            }
+        }
+    }
 }
 
-//["deals_filter": 1, "offset": 0, "radius_filter": 482.8032, "term": , "category_filter": afghani,tradamerican,african,newamerican,arabian, "ll": 37.785771,-122.406165, "sort": 2]
 
-// ["term": , "deals_filter": 0, "offset": 0, "category_filter": asianfusion,burgers, "ll": 37.785771,-122.406165, "sort": 0]
+
+

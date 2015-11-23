@@ -29,7 +29,7 @@ Time spent: 21
 
 - [ ] Search results page
     - [x] Infinite scroll for restaurant results
-    - [ ] Implement map view of restaurant results
+    - [x] Implement map view of restaurant results
 
 
 

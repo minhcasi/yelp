@@ -14,7 +14,15 @@ airports.keys[index]
 
 
 
+var someInts = [Int]()
+print("someInts is of type [Int] with \(someInts.count) items.")
 
+
+
+var someStrings = [String]()
+someStrings.count
+
+//business.append("test")
 
 
 
